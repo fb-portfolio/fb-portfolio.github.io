@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <title>Portfolio | Contact</title>
+    <style>
+        label {
+            display: block;
+            /* Labels als Blockelemente anzeigen */
+            font-weight: bold;
+            /* Fettgedruckte Labels (kann angepasst werden) */
+            margin-bottom: 5px;
+            margin-top: 30px;
+            /* Abstand zwischen Labels und Input-Feldern */
+            font-family: "Verdana", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 16px; /* Beispiel-Schriftgröße für Text */
+        }
+
+        /* Stile für Input-Felder und Textarea */
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            /* Füllt die volle Breite des übergeordneten Containers aus */
+            padding: 8px;
+            /* Innenabstand (Padding) für bessere Lesbarkeit */
+            
+            margin-bottom: 0px;
+            /* Abstand zwischen Input-Feldern */
+            border: 1px solid #ccc;
+            /* Rahmen um Input-Felder */
+            border-radius: 4px;
+            /* Abgerundete Ecken für Input-Felder */
+            font-size: 16px;
+            /* Schriftgröße für Input-Felder (kann angepasst werden) */
+        }
+
+        /* Stile für den Senden-Button */
+        button {
+            padding: 10px 40px;
+            /* Innenabstand (Padding) für den Button */
+            background-color: #e0e0e0;
+            /* Hintergrundfarbe des Buttons */
+            color: black;
+            /* Schriftfarbe des Buttons */
+            border: none;
+            /* Kein Rahmen um den Button */
+            border-radius: 4px;
+            /* Abgerundete Ecken für den Button */
+            cursor: pointer;
+            /* Zeige Handcursor beim Überfahren mit der Maus */
+            font-size: 18px;
+            /* Schriftgröße für den Button (kann angepasst werden) */
+            transition: background-color 0.3s;
+            /* Animation beim Überfahren mit der Maus */
+            margin-top: 15px;
+        }
+
+        /* Stile für den Senden-Button beim Überfahren mit der Maus */
+        button:hover {
+            background-color: #afafaf;
+            /* Hintergrundfarbe ändern */
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <h1 class="initials-title"><a href="index.html">fb</a></h1>
+
+            <div class="burger-menu" id="burger-menu">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </div>
+        <nav class="menu" id="menu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+                
+            </ul>
+        </nav>
+       
+    </header>
+
+    <main>
+        <div class="header-placeholder"></div>
+        <p>Please feel free to reach out to me via this form:</p>
+        <form action="https://formspree.io/f/mpzevgjw" method="POST">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="_replyto" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <button type="submit">Send</button>
+        </form>
+
+        <div class="bottom-placeholder"></div>
+    </main>
+
+
+
+
+    <script src="menu.js"></script> <!-- Verknüpfung zur JavaScript-Datei -->
+</body>
+
+</html>

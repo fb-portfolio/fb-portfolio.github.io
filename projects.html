@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <title>Portfolio | Projects</title>
+
+    <style>
+        .project-title {
+            font-size: 24px;
+            font-family: "Verdana", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-weight: normal;
+            color: #A0A0A0;
+
+            z-index: 1;
+            position: relative;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            transition: none;
+        }
+
+
+        .project-info {
+            font-family: "Verdana", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            color: gray;
+            font-size: 18px;
+            display: none;
+            max-width: 50%;
+        }
+
+
+        .project-image {
+            position: relative;
+            margin-top: -35px;
+            float: right;
+            z-index: 0;
+            box-shadow: none;
+            height: auto;
+            display: none;
+        }
+
+        .project-image img {
+            width: auto;
+            height: 100%;
+            max-width: 100%;
+            max-height: 120px;
+        }
+
+        .project.clicked .project-info,
+        .project:hover .project-info {
+            display: block;
+        }
+
+        .project:hover {
+            cursor: pointer;
+        }
+
+
+
+
+        .project.clicked .project-image {
+            display: block;
+        }
+
+
+        /* Adjust image height for small screens */
+        @media screen and (max-width: 767px) {
+            .project {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                margin-bottom: 0px;
+            }
+
+            .project-image img {
+                height: auto;
+
+
+            }
+
+            .project-image {
+                float: none;
+                margin-top: 0px;
+                width: 100%;
+                max-width: 100%;
+                margin-right: 10px;
+                /* Adjust the margin as needed */
+            }
+
+            .project-info {
+                max-width: 100%;
+                text-align: left;
+            }
+        }
+    </style>
+
+
+
+    <script>
+
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            // Laden Sie die Bilder in den Browser-Cache
+            var thumbnailImages = document.querySelectorAll(".project-image img");
+            thumbnailImages.forEach(function (img) {
+                var src = img.getAttribute("src");
+                var image = new Image();
+                image.src = src;
+            });
+
+
+            var projects = document.querySelectorAll(".project");
+
+            projects.forEach(function (project) {
+                var title = project.querySelector(".project-title");
+                var info = project.querySelector(".project-info");
+
+                function activateHoverEffect() {
+                    var image = project.querySelector(".project-image");
+                    var info = project.querySelector(".project-info");
+                    /* title.style.fontWeight = "bold"; */
+                    title.style.color = "black";
+                    image.style.display = "block";
+                    info.style.display = "block";
+                }
+
+                function deactivateHoverEffect() {
+                    var image = project.querySelector(".project-image");
+                    var info = project.querySelector(".project-info");
+                    if (!project.classList.contains("clicked")) {
+                        title.style.fontWeight = "normal";
+                        title.style.color = "#A0A0A0";
+                        image.style.display = "none";
+                        info.style.display = "none";
+                    }
+                }
+
+                // Fügen Sie einen Klick-Event-Listener zum Titel hinzu
+                title.addEventListener("click", function () {
+                    // Holen Sie die ID des Projekts
+                    var projectId = title.getAttribute("id");
+
+                    // Überprüfen Sie, ob die ID vorhanden ist
+                    if (projectId) {
+                        // Erstellen Sie den Link zur entsprechenden Projektseite basierend auf der ID
+                        var projectLink = "projects/" + projectId + "/index.html";
+
+                        // Weiterleitung zur Projektseite
+                        window.location.href = projectLink;
+                    }
+                });
+
+
+
+
+                // Überprüfen, ob das Gerät ein Touch-Gerät ist
+                var isTouchDevice = "ontouchstart" in window || navigator.msMaxTouchPoints;
+
+                if (isTouchDevice) {
+                    var touchTimeout;
+
+                    // Aktiviere den Hover-Effekt beim Berühren
+                    title.addEventListener("touchstart", function () {
+                        touchTimeout = setTimeout(function () {
+                            activateHoverEffect();
+                        }, 500); // Ändere die Zeit nach Bedarf (hier: 500ms)
+                    });
+
+                    // Deaktiviere den Hover-Effekt beim Beenden der Berührung
+                    title.addEventListener("touchend", function () {
+                        clearTimeout(touchTimeout);
+                        deactivateHoverEffect();
+                    });
+                } else {
+                    // Aktiviere den Hover-Effekt für Mausereignisse
+                    title.addEventListener("mouseover", function () {
+                        activateHoverEffect();
+                    });
+                    // Deaktiviere den Hover-Effekt beim Verlassen des Elements
+                    title.addEventListener("mouseout", function () {
+                        deactivateHoverEffect();
+                    });
+                }
+            });
+        });
+
+    </script>
+
+
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <h1 class="initials-title"><a href="index.html">fb</a></h1>
+
+            <div class="burger-menu" id="burger-menu">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </div>
+        <nav class="menu" id="menu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html" class="active">Projects</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+
+            </ul>
+
+        </nav>
+        <div class="header-placeholder"></div>
+
+
+    </header>
+
+    <div class="content">
+
+        <div class="project">
+            <h3 class="project-title" id="wohnscheune">Wohnscheune</h3>
+            <div class="project-image">
+                <img src="projects/wohnscheune/images/wohnscheune thumbnail.jpg">
+            </div>
+            <p class="project-info">
+                <strong>Location:</strong> Saargau, Germany<br>
+                <strong>Year:</strong> 2021 on going<br>
+                <strong>Project objective:</strong> Architectural Draft
+            </p>
+        </div>
+
+
+        <div class="project">
+
+            <h3 class="project-title" id="the-tower-in-the-city">The Tower in the City</h3>
+            <div class="project-image">
+                <img src="projects/the-tower-in-the-city/images/b1_thumbnail.jpg" alt="Project Image">
+            </div>
+            <p class="project-info">
+                <strong>Location:</strong> Prague, Czech Republic<br> <!-- Ort einfügen -->
+                <strong>Year:</strong> 2018 - 2019<br> <!-- Jahr einfügen -->
+                <strong>Project objective:</strong> Study Project
+            </p>
+
+        </div>
+
+        <div class="project">
+            <h3 class="project-title" id="mediterraneum">Mediterraneum</h3>
+            <div class="project-image">
+                <img src="projects/mediterraneum/images/b2 thumbnail.jpg" alt="Project Image">
+            </div>
+            <p class="project-info">
+                <strong>Location:</strong> Bonn, Germany<br> <!-- Ort einfügen -->
+                <strong>Year:</strong> 2017<br> <!-- Jahr einfügen -->
+                <strong>Project objective:</strong> Study Group Project
+            </p>
+
+
+        </div>
+
+        <div class="project">
+
+            <h3 class="project-title" id="gruenguertel">Grüngürtel</h3>
+            <div class="project-image">
+                <img src="projects/gruenguertel/images/b3 thumbnail2.jpg" alt="Project Image">
+            </div>
+            <p class="project-info">
+                <strong>Location:</strong> Cologne, Germany<br> <!-- Ort einfügen -->
+                <strong>Year:</strong> 2017<br> <!-- Jahr einfügen -->
+                <strong>Project objective:</strong> Urban Planning Study Group Project
+            </p>
+
+        </div>
+
+
+        <div class="project">
+            <h3 class="project-title" id="historicum">Historicum: City Archive</h3>
+            <div class="project-image">
+                <img src="projects/historicum/images/b4 thumbnail.jpg" alt="Project Image">
+            </div>
+            <p class="project-info">
+                <strong>Location:</strong> Aachen Region, Germany<br> <!-- Ort einfügen -->
+                <strong>Year:</strong> 2019<br> <!-- Jahr einfügen -->
+                <strong>Project objective:</strong> Study Project
+            </p>
+
+        </div>
+
+        <div class="project">
+            <h3 class="project-title" id="quartier-eselsweg">Quartier Eselsweg</h3>
+            <div class="project-image">
+                <img src="projects/quartier-eselsweg/images/stadtplanung thumbnail.jpg" alt="Project Image">
+            </div>
+            <p class="project-info">
+                <strong>Location:</strong> Aachen Beverau, Germany<br> <!-- Ort einfügen -->
+                <strong>Year:</strong> 2020<br>
+                <strong>Project objective:</strong> Urban Planning Study Project (at Faculty for Civil Engineering)
+            </p><!-- Jahr einfügen -->
+        </div>
+        <div class="bottom-placeholder"></div>
+    </div>
+
+
+
+
+
+    <script src="menu.js"></script> <!-- Verknüpfung zur JavaScript-Datei -->
+</body>
+
+</html>

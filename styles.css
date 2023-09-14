@@ -1,0 +1,232 @@
+/* Titel */
+h1 {
+    font-family: "Verdana", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 36px; /* Beispiel-Schriftgröße für den Titel */
+    font-weight:bold; /* Fett */
+    color: black; /* Beispiel-Farbe (#333 ist ein dunkles Grau) */
+    margin: 0px 0px 0px 0; /* Oben: 10px, Unten: 5px, Links und Rechts: 0 */
+    text-align: left;
+    
+    flex: 1; /* Nutzt den verfügbaren Platz und zentriert den Titel innerhalb des Containers */
+}
+
+h1 a {
+    text-decoration: none; /* Entfernt die Unterstreichung */
+    color: black; /* Deine gewünschte Textfarbe für den Link */
+   
+}
+
+/* Überschrift 2 */
+h2 {
+    font-family: "Verdana", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 24px; /* Beispiel-Schriftgröße für Überschrift 2 */
+    font-weight: normal; /* Fett */
+    color: black; /* Beispiel-Farbe */
+    margin: 20px 0px 0px 0; /* Oben: 10px, Unten: 5px, Links und Rechts: 0 */
+
+}
+
+/* Überschrift 2 */
+h3 {
+    font-family: "Verdana", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 18px; /* Beispiel-Schriftgröße für Überschrift 2 */
+    font-weight: bold; /* Fett */
+    color: black; /* Beispiel-Farbe */
+}
+
+/* Text */
+p {
+    font-family: "Verdana", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 18px; /* Beispiel-Schriftgröße für Text */
+    font-weight: normal; /* Normal (nicht fett) */
+    color: black; /* Beispiel-Farbe (#666 ist ein mittleres Grau) */
+    margin: 20px 0px 0px 0;
+    line-height: 1.5
+}
+
+.project-text {
+
+    margin: 30px 0px 30px 0px;
+}
+
+.project-title {
+    font-size: 24px;
+    font-family: "Verdana", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    color: black;
+
+}
+
+
+.project-info {
+    font-family: "Verdana", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: gray;
+    font-size: 18px;
+   
+}
+
+/* Text */
+footer {
+    font-family: "Verdana", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px; /* Beispiel-Schriftgröße für Text */
+    font-weight: normal; /* Normal (nicht fett) */
+    color: #666; /* Beispiel-Farbe (#666 ist ein mittleres Grau) */
+}
+
+/* Stile für die horizontale Linie unter der Überschrift */
+.header-line {
+    border: 1px solid #e0e0e0; /* Farbe und Stil der Linie anpassen */
+    margin: 8px 0; /* Abstand oben und unten */
+}
+
+/* Stile für das horizontale Menü */
+.menu {
+    list-style: none;
+    padding: 0;
+    display: none;
+    margin: 0px 0; /* Oben: 5px, Unten: 5px, Links und Rechts: 0 */
+    text-align: left; /* Menü rechtsbündig ausrichten */
+}
+
+.menu ul {
+    list-style: none; /* Entfernt Aufzählungspunkte */
+    padding: 0; /* Entfernt Padding */
+}
+
+.menu li {
+    display: inline; /* Menüpunkte nebeneinander darstellen */
+    margin-right: 20px; /* Abstand zwischen den Menüpunkten anpassen */
+    margin-left: 0px; /* Abstand links auf 0 setzen */
+    margin-bottom: 5px;
+    padding-left: 0; /* Padding links auf 0 setzen */
+    
+}
+
+.menu a {
+    text-decoration: none;
+    color: #A0A0A0;
+    font-weight:normal;
+    font-size: 20px;
+    font-family: "Verdana", "Helvetica Neue", Helvetica, Arial, sans-serif; /* Schriftart auf Helvetica Neue ändern */
+    
+}
+
+/* Setze die Farbe für aktive Links (z. B. die aktuelle Seite) auf Schwarz */
+.menu a.active {
+    color: black;
+    /* text-decoration: underline; */
+}
+
+.menu a:hover {
+    /*text-decoration: underline; /* Unterstrich beim Überfahren mit der Maus */
+    color: black;
+    /* text-decoration: underline; */
+    /* font-weight: bold; */
+}
+
+/* Zeige das Menü, wenn die Klasse "show-menu" angewendet wird */
+.menu.show-menu {
+    display: block;
+    list-style: none;
+    
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between; /* Platziert Elemente am Anfang und am Ende des Containers */
+    align-items: center; /* Zentriert Elemente vertikal */
+    
+    
+}
+
+/* Stile für das Burger-Menü */
+.burger-menu {
+    display: block; /* Das Burger-Menü sollte standardmäßig sichtbar sein */
+    cursor: pointer;
+    /* margin-right: 20px; /* Abstand zwischen dem Titel und dem Burger-Menü */
+    width: 30px; /* Breite des Burger-Menüs */
+    height: 20px; /* Höhe des Burger-Menüs */
+    float: right; /* Rechtsbündig ausrichten */
+    position: relative;
+    margin-right: 0; /* Den Abstand zum Titel entfernen */
+}
+
+.burger-menu .bar {
+    width: 100%;
+    height: 3px;
+    background-color: #333;
+    position: absolute;
+    transition: 0.4s;
+}
+
+.burger-menu .bar:nth-child(1) {
+    top: 0;
+}
+
+.burger-menu .bar:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.burger-menu .bar:nth-child(3) {
+    bottom: 0;
+}
+
+.header-placeholder {
+    margin-bottom: 80px; /* Abstand von 50px nach unten */
+}
+
+.bottom-placeholder {
+    margin-bottom: 400px; /* Abstand von 50px nach unten */
+}
+
+body {
+    max-width: 800px; /* Setze die maximale Breite auf 1200 Pixel (kann an deine Bedürfnisse angepasst werden) */
+    margin: 0 auto; /* Zentriere den Inhalt horizontal auf der Seite */
+    padding: 20px; /* Füge einen Rand um den Inhalt hinzu, um ihn besser lesbar zu machen (optional) */
+}
+
+img {
+    max-width: 100%; /* Bilder auf die Container-Breite beschränken */
+}
+
+
+/* Images */
+.img_libero {
+    width: 100%;
+    height: auto;
+    margin-top: 10px; /* Hier kannst du den gewünschten Abstand in Pixeln oder einer anderen Einheit angeben */
+}
+
+
+.img-flex-container {
+    display: flex;
+    flex-direction: row; /* Bilder vertikal anordnen */
+    align-items: center; /* Bilder zentriert ausrichten */
+    align-items: flex-start; /* Elemente am unteren Rand ausrichten */
+    justify-content: space-between;
+    gap: 5px;
+    margin-bottom: 0px;
+   
+
+}
+
+.img-caption-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: left;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    margin-right: 0px;
+}
+
+
+
+figcaption {
+    font-family: "Verdana", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    color: gray;
+    margin: 3px 0px 0px 0;
+}
