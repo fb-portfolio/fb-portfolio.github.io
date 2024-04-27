@@ -1,6 +1,6 @@
 /* Titel */
 h1 {
-    font-family: Arial,"Helvetica Neue", Helvetica, "Verdana",  sans-serif;
+    font-family: "Verdana", Arial,"Helvetica Neue", Helvetica,   sans-serif;
     font-size: 36px; /* Beispiel-Schriftgröße für den Titel */
     font-weight:normal; /* Fett */
     color: black; /* Beispiel-Farbe (#333 ist ein dunkles Grau) */
